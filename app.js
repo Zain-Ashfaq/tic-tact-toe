@@ -39,6 +39,23 @@ have semi reset button. Clears board but keeps score. would be global var to kee
 let hasGameEnded = false;
 let isPLayerOneTurn = true;
 
+let isGameboardSquareTaken = {
+  square0: false,
+};
+
 // while(hasGameEnded==true){
 
 // }
+const test = () => {
+  console.log("button has been pressed");
+  console.log(isGameboardSquareTaken);
+
+  if (isGameboardSquareTaken.square0 == false) {
+    console.log("this is false");
+    isGameboardSquareTaken.square0 = true;
+  }
+};
+
+const button0 = document.querySelector("#button0");
+
+button0.addEventListener("click", test);
