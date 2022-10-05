@@ -46,7 +46,7 @@ let isGameboardSquareTaken = {
 // while(hasGameEnded==true){
 
 // }
-const test = () => {
+const checkBoardSquare = () => {
   console.log("button has been pressed");
   console.log(isGameboardSquareTaken);
 
@@ -58,4 +58,4 @@ const test = () => {
 
 const button0 = document.querySelector("#button0");
 
-button0.addEventListener("click", test);
+button0.addEventListener("click", checkBoardSquare);
