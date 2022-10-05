@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  border: 2px solid red;
+  display: flex;
+  height: 80vh;
+
+  justify-content: center;
+  align-items: center;
+  .main__boardgameContainer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    // background-color: #2196f3;
+
+    width: 100%;
+    padding: 10px;
+
+    .grid-item {
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 2px solid rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      font-size: 30px;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+}

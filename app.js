@@ -36,3 +36,9 @@ have semi reset button. Clears board but keeps score. would be global var to kee
 
 
 */
+let hasGameEnded = false;
+let isPLayerOneTurn = true;
+
+// while(hasGameEnded==true){
+
+// }
