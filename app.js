@@ -62,8 +62,10 @@ const naughtsOrCrossesArray = [
 ];
 
 const addButton0 = () => {
-  gameStateArray.splice(0, 1, true);
-  addNaughtOrCross(0);
+  if (gameStateArray[0] === null) {
+    gameStateArray.splice(0, 1, true);
+    addNaughtOrCross(0);
+  }
 };
 const addNaughtOrCross = (squareNumber) => {
   if (isPLayerOneTurn === false) {
