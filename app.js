@@ -137,6 +137,8 @@ const gameStatusSwitcher = () => {
 
 const gameWinChecker = () => {
   //Checks to see if either X or Y is at specified index. Looks ugly. Need to find a way to make it look neater.
+  //////
+  // top left to bottom left
   if (
     (naughtsOrCrossesArray[0] == "X" &&
       naughtsOrCrossesArray[3] == "X" &&
@@ -146,6 +148,68 @@ const gameWinChecker = () => {
       naughtsOrCrossesArray[6] == "O")
   ) {
     addColorToWinnerButton(button0, button3, button6);
+    console.log("You won");
+    gameStatusSwitcher();
+  }
+  // top left to top right
+  else if (
+    (naughtsOrCrossesArray[0] == "X" &&
+      naughtsOrCrossesArray[1] == "X" &&
+      naughtsOrCrossesArray[2] == "X") ||
+    (naughtsOrCrossesArray[0] == "O" &&
+      naughtsOrCrossesArray[1] == "O" &&
+      naughtsOrCrossesArray[2] == "O")
+  ) {
+    addColorToWinnerButton(button0, button1, button2);
+    console.log("You won");
+    gameStatusSwitcher();
+  }
+  // top right to bottom right
+  else if (
+    (naughtsOrCrossesArray[2] == "X" &&
+      naughtsOrCrossesArray[5] == "X" &&
+      naughtsOrCrossesArray[8] == "X") ||
+    (naughtsOrCrossesArray[2] == "O" &&
+      naughtsOrCrossesArray[5] == "O" &&
+      naughtsOrCrossesArray[8] == "O")
+  ) {
+    addColorToWinnerButton(button2, button5, button8);
+    console.log("You won");
+    gameStatusSwitcher();
+  }
+  //bottom left to bottom right
+  else if (
+    (naughtsOrCrossesArray[6] == "X" &&
+      naughtsOrCrossesArray[7] == "X" &&
+      naughtsOrCrossesArray[8] == "X") ||
+    (naughtsOrCrossesArray[6] == "O" &&
+      naughtsOrCrossesArray[7] == "O" &&
+      naughtsOrCrossesArray[8] == "O")
+  ) {
+    addColorToWinnerButton(button6, button7, button8);
+    console.log("You won");
+    gameStatusSwitcher();
+  }
+  //Bottom left to top right
+  else if (
+    (naughtsOrCrossesArray[6],
+    naughtsOrCrossesArray[4],
+    naughtsOrCrossesArray[2] == "X") ||
+    (naughtsOrCrossesArray[6],
+    naughtsOrCrossesArray[4],
+    naughtsOrCrossesArray[2] == "O")
+  ) {
+    addColorToWinnerButton(button6, button4, button2);
+    console.log("You won");
+    gameStatusSwitcher();
+  }
+  //Top left to bottom right
+  else if (
+    (naughtsOrCrossesArray[0],
+    naughtsOrCrossesArray[4],
+    naughtsOrCrossesArray[8] == "X")
+  ) {
+    addColorToWinnerButton(button0, button4, button8);
     console.log("You won");
     gameStatusSwitcher();
   }
