@@ -192,12 +192,12 @@ const gameWinChecker = () => {
   }
   //Bottom left to top right
   else if (
-    (naughtsOrCrossesArray[6],
-    naughtsOrCrossesArray[4],
-    naughtsOrCrossesArray[2] == "X") ||
-    (naughtsOrCrossesArray[6],
-    naughtsOrCrossesArray[4],
-    naughtsOrCrossesArray[2] == "O")
+    (naughtsOrCrossesArray[6] == "X" &&
+      naughtsOrCrossesArray[4] == "X" &&
+      naughtsOrCrossesArray[2] == "X") ||
+    (naughtsOrCrossesArray[6] == "O" &&
+      naughtsOrCrossesArray[4] == "O" &&
+      naughtsOrCrossesArray[2] == "O")
   ) {
     addColorToWinnerButton(button6, button4, button2);
     console.log("You won");
@@ -205,9 +205,12 @@ const gameWinChecker = () => {
   }
   //Top left to bottom right
   else if (
-    (naughtsOrCrossesArray[0],
-    naughtsOrCrossesArray[4],
-    naughtsOrCrossesArray[8] == "X")
+    (naughtsOrCrossesArray[0] == "X" &&
+      naughtsOrCrossesArray[4] == "X" &&
+      naughtsOrCrossesArray[8] == "X") ||
+    (naughtsOrCrossesArray[0] == "O" &&
+      naughtsOrCrossesArray[4] == "O" &&
+      naughtsOrCrossesArray[8] == "O")
   ) {
     addColorToWinnerButton(button0, button4, button8);
     console.log("You won");
