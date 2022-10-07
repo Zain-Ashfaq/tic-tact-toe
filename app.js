@@ -44,7 +44,7 @@ const button0 = document.querySelector("#button0");
 const button1 = document.querySelector("#button1");
 
 let hasGameEnded = false;
-let isPLayerOneTurn = true;
+let isPLayerOneTurn = false;
 
 let hasButton0BeenClicked = false;
 
@@ -67,6 +67,12 @@ const addButton0 = () => {
     addNaughtOrCross(0);
   }
 };
+const addButton1 = () => {
+  if (gameStateArray[1] === null) {
+    gameStateArray.splice(1, 1, true);
+    addNaughtOrCross(1);
+  }
+};
 const addNaughtOrCross = (squareNumber) => {
   if (isPLayerOneTurn === false) {
     naughtsOrCrossesArray.splice(squareNumber, 1, "X");
@@ -79,3 +85,4 @@ const addNaughtOrCross = (squareNumber) => {
 console.log(gameStateArray);
 
 button0.addEventListener("click", addButton0);
+button1.addEventListener("click", addButton1);
