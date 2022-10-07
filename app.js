@@ -42,9 +42,16 @@ have game state array. Once a button has been pressed, add the button number to 
 */
 const button0 = document.querySelector("#button0");
 const button1 = document.querySelector("#button1");
+const button2 = document.querySelector("#button2");
+const button3 = document.querySelector("#button3");
+const button4 = document.querySelector("#button4");
+const button5 = document.querySelector("#button5");
+const button6 = document.querySelector("#button6");
+const button7 = document.querySelector("#button7");
+const button8 = document.querySelector("#button8");
 
 let hasGameEnded = false;
-let isPLayerOneTurn = false;
+let isPLayerOneTurn = true;
 
 let hasButton0BeenClicked = false;
 
@@ -60,36 +67,70 @@ const naughtsOrCrossesArray = [
   null,
   null,
 ];
-
+// figures out which button has been pressed
 const addButton0 = () => {
-  if (gameStateArray[0] === null) {
-    gameStateArray.splice(0, 1, true);
-    addNaughtOrCross(0, button0);
-  }
+  buttonToAdd(0, button0);
 };
+//Insert variable into parameter
 const addButton1 = () => {
-  if (gameStateArray[1] === null) {
-    gameStateArray.splice(1, 1, true);
-    addNaughtOrCross(1, button1);
+  buttonToAdd(1, button1);
+};
+const addButton2 = () => {
+  buttonToAdd(2, button2);
+};
+const addButton3 = () => {
+  buttonToAdd(3, button3);
+};
+const addButton4 = () => {
+  buttonToAdd(4, button4);
+};
+const addButton5 = () => {
+  buttonToAdd(5, button5);
+};
+const addButton6 = () => {
+  buttonToAdd(6, button6);
+};
+const addButton7 = () => {
+  buttonToAdd(7, button7);
+};
+const addButton8 = () => {
+  buttonToAdd(8, button8);
+};
+
+const buttonToAdd = (arrIndex, button) => {
+  // assign parameter value to variables: Easier to read
+  const tempArrIndex = arrIndex;
+  const whichButtonPressed = button;
+  //If statement checks if button has been pressed
+  if (gameStateArray[tempArrIndex] === null) {
+    // Changes null to true at specific index. Depends on which button number has been pressed.
+    gameStateArray.splice(tempArrIndex, 1, true);
+
+    addNaughtOrCross(tempArrIndex, whichButtonPressed);
   }
 };
 const addNaughtOrCross = (squareNumber, buttonID) => {
-  if (isPLayerOneTurn === false) {
+  if (isPLayerOneTurn === true) {
     naughtsOrCrossesArray.splice(squareNumber, 1, "X");
     buttonID.innerText = "X";
+    // Insert function that checks if game has been won
+    isPLayerOneTurn = false;
   } else {
     naughtsOrCrossesArray.splice(squareNumber, 1, "O");
     buttonID.innerText = "O";
+    isPLayerOneTurn = true;
   }
   console.log(naughtsOrCrossesArray);
-};
-
-const replaceButtonWithXorO = (buttonID) => {
-  const whichButton = buttonID;
-  whichButton;
 };
 
 console.log(gameStateArray);
 
 button0.addEventListener("click", addButton0);
 button1.addEventListener("click", addButton1);
+button2.addEventListener("click", addButton2);
+button3.addEventListener("click", addButton3);
+button4.addEventListener("click", addButton4);
+button5.addEventListener("click", addButton5);
+button6.addEventListener("click", addButton6);
+button7.addEventListener("click", addButton7);
+button8.addEventListener("click", addButton8);
