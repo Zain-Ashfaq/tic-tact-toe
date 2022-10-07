@@ -136,18 +136,27 @@ const gameStatusSwitcher = () => {
 };
 
 const gameWinChecker = () => {
+  //Checks to see if either X or Y is at specified index. Looks ugly. Need to find a way to make it look neater.
   if (
-    naughtsOrCrossesArray[0] == "X" &&
-    naughtsOrCrossesArray[3] == "X" &&
-    naughtsOrCrossesArray[6] == "X"
+    (naughtsOrCrossesArray[0] == "X" &&
+      naughtsOrCrossesArray[3] == "X" &&
+      naughtsOrCrossesArray[6] == "X") ||
+    (naughtsOrCrossesArray[0] == "O" &&
+      naughtsOrCrossesArray[3] == "O" &&
+      naughtsOrCrossesArray[6] == "O")
   ) {
+    addColorToWinnerButton(button0, button3, button6);
     console.log("You won");
     gameStatusSwitcher();
   }
 
   console.log(naughtsOrCrossesArray);
 };
-
+const addColorToWinnerButton = (num1, num2, num3) => {
+  num1.classList.add("winnersButton");
+  num2.classList.add("winnersButton");
+  num3.classList.add("winnersButton");
+};
 console.log(gameStateArray);
 
 button0.addEventListener("click", addButton0);

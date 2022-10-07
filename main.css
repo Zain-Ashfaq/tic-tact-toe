@@ -24,4 +24,7 @@ main .main__boardgameContainer .grid-item {
   font-size: 30px;
   text-align: center;
   cursor: pointer;
+}
+main .main__boardgameContainer .winnersButton {
+  background-color: blue;
 }/*# sourceMappingURL=main.css.map */
