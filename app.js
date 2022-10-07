@@ -67,6 +67,9 @@ const naughtsOrCrossesArray = [
   null,
   null,
 ];
+
+console.log("game is still running");
+
 // figures out which button has been pressed
 const addButton0 = () => {
   buttonToAdd(0, button0);
@@ -110,16 +113,38 @@ const buttonToAdd = (arrIndex, button) => {
   }
 };
 const addNaughtOrCross = (squareNumber, buttonID) => {
-  if (isPLayerOneTurn === true) {
-    naughtsOrCrossesArray.splice(squareNumber, 1, "X");
-    buttonID.innerText = "X";
-    // Insert function that checks if game has been won
-    isPLayerOneTurn = false;
-  } else {
-    naughtsOrCrossesArray.splice(squareNumber, 1, "O");
-    buttonID.innerText = "O";
-    isPLayerOneTurn = true;
+  if (hasGameEnded === false) {
+    if (isPLayerOneTurn === true) {
+      naughtsOrCrossesArray.splice(squareNumber, 1, "X");
+      buttonID.innerText = "X";
+      // Insert function that checks if game has been won
+      gameWinChecker();
+      isPLayerOneTurn = false;
+    } else {
+      naughtsOrCrossesArray.splice(squareNumber, 1, "O");
+      buttonID.innerText = "O";
+      gameWinChecker();
+      isPLayerOneTurn = true;
+    }
   }
+  console.log(`This is naughts or crosses array${naughtsOrCrossesArray}`);
+};
+const gameStatusSwitcher = () => {
+  if (hasGameEnded === false) {
+    hasGameEnded = true;
+  }
+};
+
+const gameWinChecker = () => {
+  if (
+    naughtsOrCrossesArray[0] == "X" &&
+    naughtsOrCrossesArray[3] == "X" &&
+    naughtsOrCrossesArray[6] == "X"
+  ) {
+    console.log("You won");
+    gameStatusSwitcher();
+  }
+
   console.log(naughtsOrCrossesArray);
 };
 
