@@ -64,22 +64,29 @@ const naughtsOrCrossesArray = [
 const addButton0 = () => {
   if (gameStateArray[0] === null) {
     gameStateArray.splice(0, 1, true);
-    addNaughtOrCross(0);
+    addNaughtOrCross(0, button0);
   }
 };
 const addButton1 = () => {
   if (gameStateArray[1] === null) {
     gameStateArray.splice(1, 1, true);
-    addNaughtOrCross(1);
+    addNaughtOrCross(1, button1);
   }
 };
-const addNaughtOrCross = (squareNumber) => {
+const addNaughtOrCross = (squareNumber, buttonID) => {
   if (isPLayerOneTurn === false) {
     naughtsOrCrossesArray.splice(squareNumber, 1, "X");
+    buttonID.innerText = "X";
   } else {
     naughtsOrCrossesArray.splice(squareNumber, 1, "O");
+    buttonID.innerText = "O";
   }
   console.log(naughtsOrCrossesArray);
+};
+
+const replaceButtonWithXorO = (buttonID) => {
+  const whichButton = buttonID;
+  whichButton;
 };
 
 console.log(gameStateArray);
