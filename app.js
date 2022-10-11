@@ -52,11 +52,18 @@ const button8 = document.querySelector("#button8");
 const allButtons = document.querySelectorAll(".grid-item");
 //////////////////////////////////////////////////
 const resetAllButton = document.querySelector("#resetAllButton");
+const resetBoardButton = document.querySelector("#resetBoardButton");
+/////////////////////////////////////////////////
+
+const playerOneText = document.getElementById("main__playerOneScore");
+const playerTwoText = document.getElementById("main__playerTwoScore");
+const currentPlayerTurn = document.getElementById("main__currentPlayerTurn");
 
 let hasGameEnded = false;
 let isPLayerOneTurn = true;
 
-l
+let playerOneScore = 0;
+let playerTwoScore = 0;
 
 let gameStateArray = [null, null, null, null, null, null, null, null, null];
 let naughtsOrCrossesArray = [
@@ -121,21 +128,41 @@ const addNaughtOrCross = (squareNumber, buttonID) => {
       naughtsOrCrossesArray.splice(squareNumber, 1, "X");
       buttonID.innerText = "X";
       // Insert function that checks if game has been won
+
+      currentPlayerTurn.innerText = `Player 2 turn O`;
       gameWinChecker();
+
       isPLayerOneTurn = false;
     } else {
       naughtsOrCrossesArray.splice(squareNumber, 1, "O");
       buttonID.innerText = "O";
+      currentPlayerTurn.innerText = `Player 1 turn X`;
+
       gameWinChecker();
       isPLayerOneTurn = true;
     }
   }
+
   console.log(`This is naughts or crosses array${naughtsOrCrossesArray}`);
 };
 const gameStatusSwitcher = () => {
   if (hasGameEnded === false) {
+    if (isPLayerOneTurn === true) {
+      playerOneScore += 1;
+      playerOneText.innerText = `Player 1 score:${playerOneScore}`;
+    } else {
+      playerTwoScore += 1;
+      playerTwoText.innerText = `Player 2 score:${playerTwoScore}`;
+    }
     hasGameEnded = true;
+    console.log(
+      `player 1 score is ${playerOneScore} player 2 score is ${playerTwoScore}`
+    );
   }
+  //Checks which player is true to determine winner
+  isPLayerOneTurn
+    ? (currentPlayerTurn.innerText = `Player 1 has won`)
+    : (currentPlayerTurn.innerText = `Player 2 has won`);
 };
 
 const gameWinChecker = () => {
@@ -218,10 +245,26 @@ const gameWinChecker = () => {
     addColorToWinnerButton(button0, button4, button8);
     console.log("You won");
     gameStatusSwitcher();
+  } else if (
+    (naughtsOrCrossesArray[1] == "X" &&
+      naughtsOrCrossesArray[4] == "X" &&
+      naughtsOrCrossesArray[7] == "X") ||
+    (naughtsOrCrossesArray[1] == "O" &&
+      naughtsOrCrossesArray[4] == "O" &&
+      naughtsOrCrossesArray[7] == "O")
+  ) {
+    addColorToWinnerButton(button1, button4, button7);
+    console.log("You won");
+    gameStatusSwitcher();
+  }
+  // draw
+  else if (gameStateArray.every((element) => element === true)) {
+    currentPlayerTurn.innerText = `Draw`;
   }
 
   // console.log(naughtsOrCrossesArray);
 };
+
 const addColorToWinnerButton = (num1, num2, num3) => {
   num1.classList.add("winnersButton");
   num2.classList.add("winnersButton");
@@ -230,14 +273,13 @@ const addColorToWinnerButton = (num1, num2, num3) => {
 // console.log(gameStateArray);
 //////////////////////////////////////////
 
-const clickResetAllButton = () => {
+const clickResetBoardButton = () => {
   console.log(
     `array before button press ${gameStateArray} ${naughtsOrCrossesArray}`
   );
+  currentPlayerTurn.innerText = `Player 1 turn X`;
   hasGameEnded = false;
   isPLayerOneTurn = true;
-
-
 
   gameStateArray = [null, null, null, null, null, null, null, null, null];
   naughtsOrCrossesArray = [
@@ -263,9 +305,13 @@ const clickResetAllButton = () => {
   }
 };
 
-const resetBoard =()={
-
-}
+const clickResetAllButton = () => {
+  playerOneScore = 0;
+  playerTwoScore = 0;
+  playerOneText.innerText = `Player 1 score:${playerOneScore}`;
+  playerTwoText.innerText = `Player 2 score:${playerTwoScore}`;
+  clickResetBoardButton();
+};
 
 button0.addEventListener("click", addButton0);
 button1.addEventListener("click", addButton1);
@@ -278,3 +324,4 @@ button7.addEventListener("click", addButton7);
 button8.addEventListener("click", addButton8);
 
 resetAllButton.addEventListener("click", clickResetAllButton);
+resetBoardButton.addEventListener("click", clickResetBoardButton);
