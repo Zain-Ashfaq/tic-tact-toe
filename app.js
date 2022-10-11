@@ -49,14 +49,17 @@ const button5 = document.querySelector("#button5");
 const button6 = document.querySelector("#button6");
 const button7 = document.querySelector("#button7");
 const button8 = document.querySelector("#button8");
+const allButtons = document.querySelectorAll(".grid-item");
+//////////////////////////////////////////////////
+const resetAllButton = document.querySelector("#resetAllButton");
 
 let hasGameEnded = false;
 let isPLayerOneTurn = true;
 
-let hasButton0BeenClicked = false;
+l
 
-const gameStateArray = [null, null, null, null, null, null, null, null, null];
-const naughtsOrCrossesArray = [
+let gameStateArray = [null, null, null, null, null, null, null, null, null];
+let naughtsOrCrossesArray = [
   null,
   null,
   null,
@@ -217,14 +220,52 @@ const gameWinChecker = () => {
     gameStatusSwitcher();
   }
 
-  console.log(naughtsOrCrossesArray);
+  // console.log(naughtsOrCrossesArray);
 };
 const addColorToWinnerButton = (num1, num2, num3) => {
   num1.classList.add("winnersButton");
   num2.classList.add("winnersButton");
   num3.classList.add("winnersButton");
 };
-console.log(gameStateArray);
+// console.log(gameStateArray);
+//////////////////////////////////////////
+
+const clickResetAllButton = () => {
+  console.log(
+    `array before button press ${gameStateArray} ${naughtsOrCrossesArray}`
+  );
+  hasGameEnded = false;
+  isPLayerOneTurn = true;
+
+
+
+  gameStateArray = [null, null, null, null, null, null, null, null, null];
+  naughtsOrCrossesArray = [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+  ];
+
+  console.log(
+    `array after button press ${gameStateArray} ${naughtsOrCrossesArray}`
+  );
+  for (let i = 0; i < allButtons.length; i++) {
+    allButtons[i].classList.remove("winnersButton");
+    allButtons[i].innerText = i;
+
+    console.log(`the button is ${i} ${allButtons[i]}`);
+  }
+};
+
+const resetBoard =()={
+
+}
 
 button0.addEventListener("click", addButton0);
 button1.addEventListener("click", addButton1);
@@ -235,3 +276,5 @@ button5.addEventListener("click", addButton5);
 button6.addEventListener("click", addButton6);
 button7.addEventListener("click", addButton7);
 button8.addEventListener("click", addButton8);
+
+resetAllButton.addEventListener("click", clickResetAllButton);
