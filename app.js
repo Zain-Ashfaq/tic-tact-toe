@@ -51,13 +51,13 @@ const button7 = document.querySelector("#button7");
 const button8 = document.querySelector("#button8");
 const allButtons = document.querySelectorAll(".grid-item");
 //////////////////////////////////////////////////
-const resetAllButton = document.querySelector("#resetAllButton");
-const resetBoardButton = document.querySelector("#resetBoardButton");
+const resetAllButton = document.querySelector("#info__resetAllButton");
+const resetBoardButton = document.querySelector("#info__resetBoardButton");
 /////////////////////////////////////////////////
 
-const playerOneText = document.getElementById("main__playerOneScore");
-const playerTwoText = document.getElementById("main__playerTwoScore");
-const currentPlayerTurn = document.getElementById("main__currentPlayerTurn");
+const playerOneText = document.getElementById("info__playerOneScore");
+const playerTwoText = document.getElementById("info__playerTwoScore");
+const currentPlayerTurn = document.getElementById("info__currentPlayerTurn");
 
 let hasGameEnded = false;
 let isPLayerOneTurn = true;

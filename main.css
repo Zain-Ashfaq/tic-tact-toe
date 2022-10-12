@@ -8,9 +8,18 @@ main {
   border: 2px solid red;
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  height: 100%;
   justify-content: center;
   align-items: center;
+}
+main .main__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid green;
+  height: 30vh;
+  width: 90%;
 }
 main .main__boardgameContainer {
   display: grid;
@@ -27,5 +36,5 @@ main .main__boardgameContainer .grid-item {
   cursor: pointer;
 }
 main .main__boardgameContainer .winnersButton {
-  background-color: blue;
+  background-color: cyan;
 }/*# sourceMappingURL=main.css.map */

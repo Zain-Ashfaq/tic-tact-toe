@@ -4,14 +4,24 @@
   box-sizing: border-box;
 }
 
+$winner-color: cyan;
 main {
   border: 2px solid red;
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  height: 100%;
 
   justify-content: center;
   align-items: center;
+  .main__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid green;
+    height: 30vh;
+    width: 90%;
+  }
   .main__boardgameContainer {
     display: grid;
     grid-template-columns: auto auto auto;
@@ -29,7 +39,7 @@ main {
       cursor: pointer;
     }
     .winnersButton {
-      background-color: blue;
+      background-color: $winner-color;
     }
   }
 }
