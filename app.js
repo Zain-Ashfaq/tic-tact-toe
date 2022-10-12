@@ -117,7 +117,7 @@ const gameStatusSwitcher = () => {
       `player 1 score is ${playerOneScore} player 2 score is ${playerTwoScore}`
     );
   }
-  confetti();
+
   //Checks which player is true to determine winner
   isPLayerOneTurn
     ? (currentPlayerTurn.innerText = `Player 1 has won`)
