@@ -21,6 +21,21 @@ main .main__info {
   height: 30vh;
   width: 90%;
 }
+main .main__info .info__player {
+  padding: 10px 0px;
+  margin: 10px 0px;
+  font-size: 2rem;
+}
+main .main__info #info__resetAllButton {
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+main .main__info #info__resetBoardButton {
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 5px;
+}
 main .main__boardgameContainer {
   display: grid;
   grid-template-columns: auto auto auto;
@@ -37,4 +52,10 @@ main .main__boardgameContainer .grid-item {
 }
 main .main__boardgameContainer .winnersButton {
   background-color: cyan;
+}
+
+@media only screen and (min-width: 600px) {
+  body .main__boardgameContainer {
+    max-width: 60%;
+  }
 }/*# sourceMappingURL=main.css.map */
