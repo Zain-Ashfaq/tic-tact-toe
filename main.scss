@@ -6,7 +6,7 @@
 
 $winner-color: cyan;
 main {
-  border: 2px solid red;
+  // border: 2px solid red;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -18,7 +18,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid green;
+    // border: 2px solid green;
     height: 30vh;
     width: 90%;
 
@@ -48,7 +48,7 @@ main {
 
     .grid-item {
       background-color: rgba(255, 255, 255, 0.8);
-      border: 2px solid rgba(0, 0, 0, 0.8);
+      // border: 2px solid rgba(0, 0, 0, 0.8);
       padding: 20px;
       font-size: 30px;
       text-align: center;
